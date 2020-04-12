@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+//https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/
 const OnlinePlayersHoC = () => {
   const [apiData, setApiData] = useState({});
   console.log("test");
