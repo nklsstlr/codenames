@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import { Link } from "react-router-dom";
+import OnlinePlayersAutonomous from "../OnlinePlayersAutonomous/OnlinePlayersAutonomous";
 
 const Lobby = ({ location }) => {
   const { name } = queryString.parse(location.search);
@@ -19,6 +20,7 @@ const Lobby = ({ location }) => {
           <li>Room 3</li>
         </Link>
       </ul>
+      <OnlinePlayersAutonomous></OnlinePlayersAutonomous>
     </div>
   );
 };

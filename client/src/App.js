@@ -5,6 +5,7 @@ import Lobby from "./components/Lobby/Lobby";
 import Game from "./components/Game/Game";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import OnlinePlayers from "./components/OnlinePlayersAutonomous/OnlinePlayersAutonomous";
 
 const App = () => {
   return (
