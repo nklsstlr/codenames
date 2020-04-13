@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
+import SimpleUserTable from "../OnlinePlayersHoC/SimpleOnlinePlayerList";
 
 const OnlinePlayersHooks = () => {
-  const [apiData, setApiData] = useState({});
-  console.log("test");
-
-  async function fetchData() {
-    const res = await fetch("http://localhost:3002");
-    const message = await res.json();
-    console.log(message.response);
-    setApiData(message.response);
-  }
+  const [data, setData] = useState({ users: [], isFetching: false });
 
   useEffect(() => {
-    fetchData();
-  });
+    const fetchUsers = async () => {
+      try {
+        setData({ users: data.users, isFetching: true });
+        const result = await callAPI();
+        console.log(result);
+        setData({ users: result.response, isFetching: false });
+      } catch (e) {
+        console.log(e);
+        setData({ users: data.users, isFetching: false });
+      }
+    };
+    fetchUsers();
+    setInterval(() => fetchUsers(), 5000);
+  }, []);
 
-  return (
-    <div>
-      <h1>Online</h1>
-      Online Players: Normal API-Call : {apiData.message}
-    </div>
-  );
+  async function callAPI() {
+    const res = await fetch("http://localhost:3002/users").then((res) =>
+      res.json()
+    );
+    return res;
+  }
+
+  return <SimpleUserTable users={data.users} isFetching={data.isFetching} />;
 };
 
 export default OnlinePlayersHooks;

@@ -5,6 +5,7 @@ import OnlinePlayersAutonomous from "../OnlinePlayersAutonomous/OnlinePlayersAut
 import OnlinePlayersHoC from "../OnlinePlayersHoC/OnlinePlayersHoC";
 import SimpleOnlinePlayerList from "../OnlinePlayersHoC/SimpleOnlinePlayerList";
 import OnlinePlayersRenderProps from "../OnlinePlayersRenderProps/OnlinePlayersRenderProps";
+import OnlinePlayersHooks from "../OnlinePlayersHooks/OnlinePlayersHooks";
 const Lobby = ({ location }) => {
   const { name } = queryString.parse(location.search);
   return (
@@ -27,6 +28,7 @@ const Lobby = ({ location }) => {
       <OnlinePlayersRenderProps
         children={SimpleOnlinePlayerList}
       ></OnlinePlayersRenderProps>
+      <OnlinePlayersHooks></OnlinePlayersHooks>
     </div>
   );
 };
