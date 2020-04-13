@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import { Link } from "react-router-dom";
 import OnlinePlayersAutonomous from "../OnlinePlayersAutonomous/OnlinePlayersAutonomous";
-
+import OnlinePlayersHoC from "../OnlinePlayersHoC/OnlinePlayersHoC";
+import SimpleOnlinePlayerList from "../OnlinePlayersHoC/SimpleOnlinePlayerList";
+import OnlinePlayersRenderProps from "../OnlinePlayersRenderProps/OnlinePlayersRenderProps";
 const Lobby = ({ location }) => {
   const { name } = queryString.parse(location.search);
   return (
@@ -21,6 +23,10 @@ const Lobby = ({ location }) => {
         </Link>
       </ul>
       <OnlinePlayersAutonomous></OnlinePlayersAutonomous>
+      <OnlinePlayersHoC></OnlinePlayersHoC>
+      <OnlinePlayersRenderProps
+        children={SimpleOnlinePlayerList}
+      ></OnlinePlayersRenderProps>
     </div>
   );
 };

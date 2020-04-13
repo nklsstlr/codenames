@@ -1,26 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 
-const OnlinePlayersRenderProps = () => {
-  const [apiData, setApiData] = useState({});
-  console.log("test");
-
-  async function fetchData() {
-    const res = await fetch("http://localhost:3002");
-    const message = await res.json();
-    console.log(message.response);
-    setApiData(message.response);
+//https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/
+class OnlinePlayersRenderProps extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFetching: false,
+      users: [],
+    };
+  }
+  componentDidMount() {
+    this.fetchUsers();
+    this.timer = setInterval(() => this.fetchUsers(), 5000);
   }
 
-  useEffect(() => {
-    fetchData();
-  });
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    this.timer = null;
+  }
 
-  return (
-    <div>
-      <h1>Online</h1>
-      Online Players: Normal API-Call : {apiData.message}
-    </div>
-  );
-};
-
+  fetchUsers() {
+    fetch("http://localhost:3002/users")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            users: result.response,
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error: error,
+          });
+        }
+      );
+  }
+  render = () => this.props.children(this.state);
+}
 export default OnlinePlayersRenderProps;
