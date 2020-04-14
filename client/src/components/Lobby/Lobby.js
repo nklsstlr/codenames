@@ -28,6 +28,7 @@ const Lobby = ({ location }) => {
     });
     return () => {
       console.log("leaving room");
+      socket.disconnect();
       socket.emit("disconnect", {});
     };
   }, [ENDPOINT, { name }]);

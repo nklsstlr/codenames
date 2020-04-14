@@ -17,9 +17,9 @@ const addUser = ({ id, name }) => {
 }
 
 const removeUser = (id) => {
-  console.log("remove User is called : "+id)
   var uu = users.find((user)=>user.id===id);
-  console.log("uu "+ uu);
+  console.log("remove User is called : "+ JSON.stringify(uu))
+
   const index = users.findIndex((user) => user.id === id);
 
   if(index !== -1) return users.splice(index, 1)[0];
