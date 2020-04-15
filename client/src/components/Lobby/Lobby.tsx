@@ -9,7 +9,7 @@ import OnlinePlayersRenderProps from "../OnlinePlayersRenderProps/OnlinePlayersR
 import OnlinePlayersHooks from "../OnlinePlayersHooks/OnlinePlayersHooks";
 
 const Lobby = ({ location }: { location: Location }) => {
-  const { name }: any = queryString.parse(location.search).name;
+  const { name }: any = queryString.parse(location.search);
   const ENDPOINT = "http://localhost:3002";
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Lobby = ({ location }: { location: Location }) => {
 
     //antony fragen wie ich objekt convert
     console.log("join");
-    console.log(name);
+    console.log({ name });
 
     //Nochmaliger join führt zum disconnect davor
     socket.emit("join", { name }, (error: any) => {
@@ -47,6 +47,7 @@ const Lobby = ({ location }: { location: Location }) => {
         </Link>
       </ul>
       <OnlinePlayersHooks nameData={name}></OnlinePlayersHooks>
+      {/* <OnlinePlayersHoC></OnlinePlayersHoC> */}
     </div>
   );
 };

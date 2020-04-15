@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from "react";
 
-class OnlinePlayersAutonomous extends React.Component {
-  constructor(props) {
+type OnlinePlayersAutonomousState = {
+  users: any[];
+  isLoaded: boolean;
+  error: any | null;
+};
+
+class OnlinePlayersAutonomous extends React.Component<
+  {},
+  OnlinePlayersAutonomousState
+> {
+  constructor(props: any) {
     super(props);
-    this.state = {
-      users: [],
-      isLoaded: false,
-      error: null,
-    };
   }
+  //Bug: https://stackoverflow.com/questions/45802988/typescript-use-correct-version-of-settimeout-node-vs-window
+  private _timerId: any;
 
   componentDidMount() {
     this.fetchUsers();
-    this.timer = setInterval(() => this.fetchUsers(), 5000);
+    this._timerId = setInterval(() => this.fetchUsers(), 5000);
   }
   componentWillUnmount() {
-    clearInterval(this.timer);
-    this.timer = null;
+    clearInterval(this._timerId);
+    this._timerId = null;
   }
 
   fetchUsers() {
