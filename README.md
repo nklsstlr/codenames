@@ -1,4 +1,18 @@
+# Codenames Test Project
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Steps Done
+
+### Learned Components
+
+### Fetching Data
+
+### Hooks
+
+### Websockets
+
+### Typescript
+
 
 ## Available Scripts
 
