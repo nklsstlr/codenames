@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SimpleUserTable from "./SimpleOnlinePlayerList";
+import SimpleUserTable from "./SimpleOnlinePlayerListHoC";
 
 type OnlinePlayersHoCState = {
   users: any[];

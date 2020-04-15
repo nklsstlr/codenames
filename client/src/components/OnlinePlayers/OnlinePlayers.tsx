@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import SimpleUserTable from "../OnlinePlayersHoC/SimpleOnlinePlayerList";
+import SimpleUserTable from "./SimpleOnlinePlayerList";
 import io from "socket.io-client";
 
-type OnlinePlayersHooksProps = {
+type OnlinePlayersProps = {
   nameData: string;
 };
 
 let socket;
-const OnlinePlayersHooks = ({ nameData }: OnlinePlayersHooksProps) => {
+const OnlinePlayers = ({ nameData }: OnlinePlayersProps) => {
   console.log("nameData: " + nameData);
   const ENDPOINT = "http://localhost:3002";
   const [userData, setUserData] = useState([]);
@@ -26,4 +26,4 @@ const OnlinePlayersHooks = ({ nameData }: OnlinePlayersHooksProps) => {
   return <SimpleUserTable users={userData} isFetching={data.isFetching} />;
 };
 
-export default OnlinePlayersHooks;
+export default OnlinePlayers;

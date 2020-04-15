@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import queryString, { ParsedQuery } from "query-string";
-import OnlinePlayersAutonomous from "../OnlinePlayersAutonomous/OnlinePlayersAutonomous";
-import OnlinePlayersHoC from "../OnlinePlayersHoC/OnlinePlayersHoC";
-import SimpleOnlinePlayerList from "../OnlinePlayersHoC/SimpleOnlinePlayerList";
-import OnlinePlayersRenderProps from "../OnlinePlayersRenderProps/OnlinePlayersRenderProps";
-import OnlinePlayersHooks from "../OnlinePlayersHooks/OnlinePlayersHooks";
+import OnlinePlayersAutonomous from "../examples/OnlinePlayersAutonomous/OnlinePlayersAutonomous";
+import OnlinePlayersHoC from "../examples/OnlinePlayersHoC/OnlinePlayersHoC";
+import SimpleOnlinePlayerList from "../examples/OnlinePlayersHoC/SimpleOnlinePlayerListHoC";
+import OnlinePlayersRenderProps from "../examples/OnlinePlayersRenderProps/OnlinePlayersRenderProps";
+import OnlinePlayersHooks from "../OnlinePlayers/OnlinePlayers";
 
 const Lobby = ({ location }: { location: Location }) => {
   const { name }: any = queryString.parse(location.search);
@@ -47,7 +47,6 @@ const Lobby = ({ location }: { location: Location }) => {
         </Link>
       </ul>
       <OnlinePlayersHooks nameData={name}></OnlinePlayersHooks>
-      {/* <OnlinePlayersHoC></OnlinePlayersHoC> */}
     </div>
   );
 };
