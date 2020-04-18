@@ -10,6 +10,7 @@ import ProfilePage from "./components/auth/ProfilePage/ProfilePage";
 import PasswordReset from "./components/auth/PasswordReset/PasswordReset";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { UserContext } from "./providers/UserProvider";
+import "./style.scss";
 
 const App = () => {
   console.log("### " + process.env.ENV_CUSTOM_NAME);
