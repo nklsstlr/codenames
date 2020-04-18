@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { UserContext } from "./providers/UserProvider";
 
 const App = () => {
+  console.log("### " + process.env.ENV_CUSTOM_NAME);
   //const user = useContext(UserContext);
   const user = null;
   console.log("user is: " + user);

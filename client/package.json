@@ -13,8 +13,8 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-router-dom": "^5.1.4",
     "@types/socket.io-client": "^1.4.32",
-    "query-string": "^6.12.1",
     "firebase": "^7.14.0",
+    "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
@@ -25,8 +25,8 @@
   "scripts": {
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open --hot --config webpack.development.config.js",
+    "build": "webpack --mode production --config webpack.production.config.js",
     "check-types": "tsc"
   },
   "eslintConfig": {
@@ -53,6 +53,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.2",
+    "dotenv-webpack": "^1.7.0",
     "html-webpack-plugin": "^4.2.0",
     "style-loader": "^1.1.4",
     "tslint": "^6.1.1",
