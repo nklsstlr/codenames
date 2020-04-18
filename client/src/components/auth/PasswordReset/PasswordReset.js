@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../../firebase";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -10,10 +11,25 @@ const PasswordReset = () => {
     if (name === "userEmail") {
       setEmail(value);
     }
+    console.log(email);
   };
   const sendResetEmail = (event) => {
+    console.log("start reset mail");
     event.preventDefault();
+    auth
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        setEmailHasBeenSent(true);
+        setTimeout(() => {
+          setEmailHasBeenSent(false);
+        }, 3000);
+      })
+      .catch(() => {
+        setError("Error resetting password");
+      });
+    console.log(emailHasBeenSent);
   };
+  console.log(emailHasBeenSent);
   return (
     <div className="mt-8">
       <h1 className="text-xl text-center font-bold mb-3">
