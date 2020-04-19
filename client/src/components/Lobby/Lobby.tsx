@@ -12,24 +12,24 @@ const Lobby = ({ location }: { location: Location }) => {
   const { name }: any = queryString.parse(location.search);
   const ENDPOINT = "http://localhost:3002";
 
-  useEffect(() => {
-    var socket = io(ENDPOINT);
+  // useEffect(() => {
+  //   var socket = io(ENDPOINT);
 
-    //antony fragen wie ich objekt convert
-    console.log("join");
-    console.log({ name });
+  //   //antony fragen wie ich objekt convert
+  //   console.log("join");
+  //   console.log({ name });
 
-    //Nochmaliger join führt zum disconnect davor
-    socket.emit("join", { name }, (error: any) => {
-      if (error) {
-        alert(error);
-      }
-    });
-    return () => {
-      console.log("leaving room");
-      socket.disconnect();
-    };
-  }, [ENDPOINT, { name }]);
+  //   //Nochmaliger join führt zum disconnect davor
+  //   socket.emit("join", { name }, (error: any) => {
+  //     if (error) {
+  //       alert(error);
+  //     }
+  //   });
+  //   return () => {
+  //     console.log("leaving room");
+  //     socket.disconnect();
+  //   };
+  // }, [ENDPOINT, { name }]);
 
   return (
     <div>
