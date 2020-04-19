@@ -12,13 +12,16 @@ module.exports = function (env, argv) {
     output: {
       path: path.join(__dirname, "/dist"),
       filename: "bundle.js",
+      publicPath: "/",
     },
 
     // adding .ts and .tsx to resolve.extensions will help babel look for .ts and .tsx files to transpile
     resolve: {
       extensions: [".ts", ".tsx", ".js"],
     },
-
+    devServer: {
+      historyApiFallback: true,
+    },
     module: {
       rules: [
         // we use babel-loader to load our jsx and tsx files
