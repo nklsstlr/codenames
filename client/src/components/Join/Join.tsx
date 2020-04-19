@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const Join = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,9 @@ const Join = () => {
         onClick={(e) => (!name ? e.preventDefault() : null)}
         to={`/lobby?name=${name}`}
       >
-        <button type="submit">Enter</button>
+        <Button variant="contained" color="primary" type="submit">
+          Enter
+        </Button>
       </Link>
     </div>
   );
