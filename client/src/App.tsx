@@ -11,6 +11,7 @@ import Game from "./components/Game/Game";
 import Lobby from "./components/Lobby/Lobby";
 import SignUp from "./components/auth/SignUp/SignUp";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import LandingPage from "./components/LandingPage/LandingPage";
 import PasswordReset from "./components/auth/PasswordReset/PasswordReset";
 import ProfilePage from "./components/auth/ProfilePage/ProfilePage";
 import { createBrowserHistory } from "history";
@@ -22,7 +23,8 @@ export default function AuthExample() {
     <Router>
       <div>
         <NavigationBar></NavigationBar>
-        {history.location.pathname === "/" && <SignIn />}
+
+        {history.location.pathname === "/" && <LandingPage />}
 
         <Switch>
           <Route path="/SignIn" component={SignIn} />
@@ -46,7 +48,7 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
     <Route
       {...rest}
       render={(props) =>
-        user.uid.length ? (
+        user.email ? (
           <Component {...props} />
         ) : (
           <Redirect

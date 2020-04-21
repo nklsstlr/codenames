@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import { UserContext } from "./../../providers/UserProvider";
-import { Link } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 
 const NavigationBar = () => {
   const user = useContext(UserContext);
 
   return (
     <div>
+      <Link href="/"> Home </Link>
       Navbar User is {user.email}
-      <Link to={`/profile`}> Profile</Link>
+      <Link href="/profile"> Profile</Link>
     </div>
   );
 };
