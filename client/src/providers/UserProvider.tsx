@@ -1,36 +1,31 @@
-import React, { Component, createContext } from "react";
+import React, { Component, createContext, useState, useEffect } from "react";
 import { auth, generateUserDocument } from "../firebase";
 
-export const UserContext = createContext(
-  {
+export const UserContext = createContext({
+  uid: "",
+  email: "",
+  displayName: "",
+  photoURL: "",
+});
+
+const UserProvider = ({ children }) => {
+  const [user, setUser] = useState({
     uid: "",
     email: "",
     displayName: "",
-    photoURL: ""
-  }
-);
+    photoURL: "",
+  });
 
-class UserProvider extends Component {
-  state = {
-    uid: "",
-    email: "",
-    displayName: "",
-    photoURL: ""
-  };
-
-  componentDidMount = () => {
+  //useEffect
+  useEffect(() => {
+    console.log("useEffect has been called!");
     auth.onAuthStateChanged(async (userAuth) => {
       console.log("auth changed");
       const user = await generateUserDocument(userAuth);
-      this.setState({ ...user });
+      setUser({ ...user });
     });
-  };
-  render() {
-    return (
-      <UserContext.Provider value={this.state}>
-        {this.props.children}
-      </UserContext.Provider>
-    );
-  }
-}
+  }, []); //Pass Array as second argument
+
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+};
 export default UserProvider;
