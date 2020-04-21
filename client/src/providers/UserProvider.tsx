@@ -1,5 +1,6 @@
 import React, { Component, createContext, useState, useEffect } from "react";
 import { auth, generateUserDocument } from "../firebase";
+import { useLocalStorage } from "./../helpers/hooks/useLocalStorage";
 
 export const UserContext = createContext({
   uid: "",
@@ -9,7 +10,7 @@ export const UserContext = createContext({
 });
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({
+  const [user, setUser] = useLocalStorage("currentUser", {
     uid: "",
     email: "",
     displayName: "",
