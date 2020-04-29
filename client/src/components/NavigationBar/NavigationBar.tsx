@@ -13,6 +13,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { auth } from "./../../firebase";
+import { Link } from "react-router-dom";
+import Lobby from "components/Lobby/Lobby";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +61,12 @@ export default function NavigationBar() {
           <Typography variant="h6" className={classes.title}>
             TEST
           </Typography>
+          <Link to={`/`}>
+            <li>Home</li>
+          </Link>
+          <Link to={`/lobby`}>
+            <li>Lobby</li>
+          </Link>
           {user.email && (
             <div>
               <div>

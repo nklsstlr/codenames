@@ -3,6 +3,7 @@ const SimpleOnlinePlayerList = (props: any) => {
   console.log(props);
   return (
     <div>
+      <h2>Online Players</h2>
       <ul>
         {props.users.map((user: any) => (
           <li key={user.id}>

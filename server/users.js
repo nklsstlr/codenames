@@ -1,15 +1,19 @@
 const users = [];
 
 const addUser = ({ id, name }) => {
-  console.log("ID: "+id+"und Name: "+ name)
+  console.log("ID: "+id+"und name: "+ name)
   name = name.trim().toLowerCase();
 
   const existingUser = users.find((user) => user.name === name);
 
   if(!name) return { error: 'Username is required.' };
-  if(existingUser) return { error: 'Username is taken.' };
+  
 
   const user = { id, name};
+  if(existingUser) {
+    console.warn("second login")
+    return { user };
+  }
 
   users.push(user);
   
@@ -28,11 +32,19 @@ const removeUser = (id) => {
 const getUser = (id) => users.find((user) => user.id === id);
 
 const getUsers = () => {
-  users.map(u => console.log(u));
+  users.map(u => console.log("mapped user : "+u));
   return users;
 }
 
+const userExist = (name) => {
+  var user = users.find((user)=>user.name===name);
+  if(user){
+    return "tu";
+  }
+  else{
+    return "fa";
+  }};
 
 const getUsersInRoom = (room) => users.filter((user) => user.room === room);
 
-module.exports = { addUser, removeUser, getUser, getUsersInRoom, getUsers };
+module.exports = { addUser, removeUser, getUser, getUsersInRoom, getUsers,userExist };

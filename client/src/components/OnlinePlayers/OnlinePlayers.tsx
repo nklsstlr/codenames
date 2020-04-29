@@ -23,7 +23,11 @@ const OnlinePlayers = ({ nameData }: OnlinePlayersProps) => {
     });
   }, []);
 
-  return <SimpleUserTable users={userData} isFetching={data.isFetching} />;
+  return (
+    <div id="OnlinePlayerCompId">
+      <SimpleUserTable users={userData} isFetching={data.isFetching} />
+    </div>
+  );
 };
 
 export default OnlinePlayers;

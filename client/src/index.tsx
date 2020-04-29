@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 
 import UserProvider from "./providers/UserProvider";
+import SocketProvider from "./providers/SocketProvider";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <SocketProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </SocketProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

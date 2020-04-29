@@ -16,6 +16,7 @@ import PasswordReset from "./components/auth/PasswordReset/PasswordReset";
 import ProfilePage from "./components/auth/ProfilePage/ProfilePage";
 import { createBrowserHistory } from "history";
 import { auth } from "./firebase";
+import Join from "./components/Join/Join";
 export default function AuthExample() {
   const history = createBrowserHistory();
   console.log("historypath: " + history.location.pathname);
@@ -30,6 +31,7 @@ export default function AuthExample() {
           <Route path="/SignIn" component={SignIn} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/passwordReset" exact component={PasswordReset} />
+          <Route path="/Join" exact component={Join} />
           <PrivateRoute component={Game} path="/game" />
           <PrivateRoute component={Lobby} path="/lobby" />
           <PrivateRoute component={ProfilePage} path="/profile" />

@@ -10,15 +10,28 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-const { addUser, removeUser, getUsers, getUsersInRoom } = require('./users');
+const { addUser, removeUser, getUsers, getUser,getUsersInRoom,userExist } = require('./users');
 
 app.use(cors());
 app.use(router);
 
 io.on('connect', (socket) => {
-  socket.on('join', ({ name }, callback) => {
-    console.log(name);
+  socket.on('join', (name, callback) => {
+    // console.log(name);
+    // const x = { users: getUsers()};
+    // console.log("x "+x.users)
+    // var usss = x.users.find((user) => user.name === name)
+    // console.log("user from " + usss)
+    // console.log("### "+getUser("niklas"))
+    // if(getUsers().find((user) => user.name === name)){
+    //   console.log("hallooo")
+    //     return callback();
+    // }
+    console.log("## "+ userExist(name))
+
+    
     const { error, user } = addUser({ id: socket.id, name});
+    
 
     if(error) return callback(error);
 

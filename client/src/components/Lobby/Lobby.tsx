@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import queryString, { ParsedQuery } from "query-string";
@@ -7,29 +7,35 @@ import OnlinePlayersHoC from "../examples/OnlinePlayersHoC/OnlinePlayersHoC";
 import SimpleOnlinePlayerList from "../examples/OnlinePlayersHoC/SimpleOnlinePlayerListHoC";
 import OnlinePlayersRenderProps from "../examples/OnlinePlayersRenderProps/OnlinePlayersRenderProps";
 import OnlinePlayersHooks from "../OnlinePlayers/OnlinePlayers";
+import { UserContext } from "../../providers/UserProvider";
+import { SocketContext } from "../../providers/SocketProvider";
 
 const Lobby = ({ location }: { location: Location }) => {
-  const { name }: any = queryString.parse(location.search);
+  const socket: SocketIOClient.Socket = useContext(SocketContext);
+  const query = queryString.parse(location.search);
+
   const ENDPOINT = "http://localhost:3002";
 
-  // useEffect(() => {
-  //   var socket = io(ENDPOINT);
+  useEffect(() => {
+    //var socket = io(ENDPOINT);
 
-  //   //antony fragen wie ich objekt convert
-  //   console.log("join");
-  //   console.log({ name });
-
-  //   //Nochmaliger join führt zum disconnect davor
-  //   socket.emit("join", { name }, (error: any) => {
-  //     if (error) {
-  //       alert(error);
-  //     }
-  //   });
-  //   return () => {
-  //     console.log("leaving room");
-  //     socket.disconnect();
-  //   };
-  // }, [ENDPOINT, { name }]);
+    //antony fragen wie ich objekt convert
+    console.log("join");
+    //console.log({ email });
+    //const { email } = { name };
+    console.log(query.name);
+    if (query.name)
+      //Nochmaliger join führt zum disconnect davor
+      socket.emit("join", query.name, (error: any) => {
+        if (error) {
+          alert(error);
+        }
+      });
+    return () => {
+      console.log("leaving room");
+      //socket.disconnect();
+    };
+  }, [ENDPOINT, { name }]);
 
   return (
     <div>

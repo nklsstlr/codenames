@@ -13,6 +13,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Typescript
 
+## TODO
+
+Models
+Backend Logik
+Routing order
+
 
 ## Available Scripts
 
