@@ -6,7 +6,7 @@ import OnlinePlayersAutonomous from "../examples/OnlinePlayersAutonomous/OnlineP
 import OnlinePlayersHoC from "../examples/OnlinePlayersHoC/OnlinePlayersHoC";
 import SimpleOnlinePlayerList from "../examples/OnlinePlayersHoC/SimpleOnlinePlayerListHoC";
 import OnlinePlayersRenderProps from "../examples/OnlinePlayersRenderProps/OnlinePlayersRenderProps";
-import OnlinePlayersHooks from "../OnlinePlayers/OnlinePlayers";
+import OnlinePlayers from "../OnlinePlayers/OnlinePlayers";
 import { UserContext } from "../../providers/UserProvider";
 import { SocketContext } from "../../providers/SocketProvider";
 
@@ -15,27 +15,6 @@ const Lobby = ({ location }: { location: Location }) => {
   const query = queryString.parse(location.search);
 
   const ENDPOINT = "http://localhost:3002";
-
-  useEffect(() => {
-    //var socket = io(ENDPOINT);
-
-    //antony fragen wie ich objekt convert
-    console.log("join");
-    //console.log({ email });
-    //const { email } = { name };
-    console.log(query.name);
-    if (query.name)
-      //Nochmaliger join führt zum disconnect davor
-      socket.emit("join", query.name, (error: any) => {
-        if (error) {
-          alert(error);
-        }
-      });
-    return () => {
-      console.log("leaving room");
-      //socket.disconnect();
-    };
-  }, [ENDPOINT, { name }]);
 
   return (
     <div>
@@ -52,7 +31,7 @@ const Lobby = ({ location }: { location: Location }) => {
           <li>Room 3</li>
         </Link>
       </ul>
-      <OnlinePlayersHooks nameData={name}></OnlinePlayersHooks>
+      <OnlinePlayers nameData={name}></OnlinePlayers>
     </div>
   );
 };
