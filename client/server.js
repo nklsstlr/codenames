@@ -8,7 +8,7 @@ const cors = require("cors");
 
 const distPath = path.join(__dirname, "dist");
 
-const router = require("./router");
+const router = require("./src/api/router");
 
 const server = http.createServer(app);
 const io = socketio(server);

@@ -14,7 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { auth } from "./../../firebase";
 import { Link } from "react-router-dom";
-import Lobby from "components/Lobby/Lobby";
+import Lobby from "web/components/Lobby/Lobby";
 
 const useStyles = makeStyles((theme) => ({
   root: {
