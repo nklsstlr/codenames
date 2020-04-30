@@ -45,7 +45,7 @@ const OnlinePlayers = ({ nameData }: OnlinePlayersProps) => {
   );
 };
 async function callAPI() {
-  const res = await fetch("http://localhost:3002/users").then((res) =>
+  const res = await fetch("http://localhost:8080/users").then((res) =>
     res.json()
   );
   return res;

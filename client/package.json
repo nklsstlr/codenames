@@ -42,7 +42,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " node server.js",
     "build": "web:build-prod",
-    "start-dev": "cross-env HOSTALL=true npm-run-all --parallel api:start-dev web:build-dev ",
+    "start-dev": "cross-env HOSTALL=true npm-run-all --parallel  web:build-dev api:start-dev",
     "api:start-dev": "nodemon server.js  ",
     "web:start-dev": "webpack-dev-server --mode development --open --hot",
     "web:start-prod": "webpack-dev-server --mode production --open --hot",

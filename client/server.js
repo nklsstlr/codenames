@@ -1,27 +1,27 @@
 const express = require("express");
 const path = require("path");
-const port = process.env.PORT || 8080;
-const app = express();
+
 const socketio = require("socket.io");
 const http = require("http");
 const cors = require("cors");
 var reload = require("reload");
 var connectLivereload = require("connect-livereload");
 const livereload = require("livereload");
-
-const distPath = path.join(__dirname, "dist");
-// const { App } = require("./src/web/App");
+const port = process.env.PORT || 8080;
 
 const router = require("./src/api/router");
-
+const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
-// the __dirname is the current directory from where the script is running
 
-var liveReloadServer = livereload.createServer();
-liveReloadServer.watch(distPath);
-app.use(connectLivereload());
-app.use(express.static(distPath));
+const distPath = path.join(__dirname, "dist");
+
+if (process.env.HOSTALL === "true") {
+  console.log("WEB_APP also loaded");
+  app.use(express.static(distPath));
+} else {
+  console.log("WEB_APP isnt loaded");
+}
 
 const {
   addUser,
@@ -83,6 +83,15 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
+var liveReloadServer = livereload.createServer();
+liveReloadServer.watch(distPath);
+app.use(connectLivereload());
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+
 if (app.get("env") === "development") {
   console.log("yes here");
   // Reload code here
@@ -101,11 +110,6 @@ if (app.get("env") === "development") {
         err
       );
     });
-  liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-      liveReloadServer.refresh("/");
-    }, 100);
-  });
 } else {
   server.listen(port);
 }
