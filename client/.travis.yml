@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - lts/*
+before_script:
+  - npm install -g npm
+install:
+  - npm i
+script:
+  - npm run build
