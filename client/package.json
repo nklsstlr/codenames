@@ -17,6 +17,7 @@
     "@types/socket.io-client": "^1.4.32",
     "connect-livereload": "^0.6.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
     "easy-livereload": "^1.4.0",
     "express": "^4.17.1",
     "firebase": "^7.14.0",
@@ -40,13 +41,13 @@
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " node server.js",
-    "start-dev": " npm-run-all --parallel start-devapi build-devweb ",
-    "start-devapi": "nodemon server.js",
-    "start-devweb": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
-    "build-devweb": "webpack --mode development --watch",
-    "check-types": "tsc",
-    "reloadx": "reload -b -p 8081 -d \"dist\""
+    "build": "web:build-prod",
+    "start-dev": "cross-env HOSTALL=true npm-run-all --parallel api:start-dev web:build-dev ",
+    "api:start-dev": "nodemon server.js  ",
+    "web:start-dev": "webpack-dev-server --mode development --open --hot",
+    "web:start-prod": "webpack-dev-server --mode production --open --hot",
+    "web:build-prod": "webpack --mode production",
+    "web:build-dev": "webpack --mode development --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
