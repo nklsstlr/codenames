@@ -41,7 +41,7 @@
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " node server.js",
-    "build": "web:build-prod",
+    "build": "webpack --mode production",
     "start-dev": "cross-env HOSTALL=true npm-run-all --parallel  web:build-dev api:start-dev",
     "api:start-dev": "nodemon server.js  ",
     "web:start-dev": "webpack-dev-server --mode development --open --hot",
