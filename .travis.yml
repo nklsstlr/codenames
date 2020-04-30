@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - lts/*
 before_script:
+  - cd client
   - npm install -g npm
 install:
   - npm i
