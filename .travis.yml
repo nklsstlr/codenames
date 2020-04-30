@@ -3,7 +3,8 @@ node_js:
   - lts/*
 before_script:
   - cd client
-  - npm install -g npm
   - npm i
+  - npm install -g npm
+  
 script:
   - npm run build
