@@ -4,7 +4,6 @@ node_js:
 before_script:
   - cd client
   - npm install -g npm
-install:
   - npm i
 script:
   - npm run build
