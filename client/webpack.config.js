@@ -6,7 +6,7 @@ module.exports = function (env, argv) {
   console.log("mode : ", argv.mode);
   return {
     // webpack will take the files from ./src/index
-    entry: "./src/index",
+    entry: "./src/web/index",
 
     // and output it into /dist as bundle.js
     output: {
@@ -22,6 +22,7 @@ module.exports = function (env, argv) {
     devServer: {
       historyApiFallback: true,
     },
+
     module: {
       rules: [
         // we use babel-loader to load our jsx and tsx files
@@ -42,7 +43,7 @@ module.exports = function (env, argv) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./src/web/index.html",
       }),
       new Dotenv({
         path:

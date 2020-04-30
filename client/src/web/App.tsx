@@ -17,7 +17,7 @@ import ProfilePage from "./components/auth/ProfilePage/ProfilePage";
 import { createBrowserHistory } from "history";
 import { auth } from "./firebase";
 import Join from "./components/Join/Join";
-export default function AuthExample() {
+export default function App() {
   const history = createBrowserHistory();
   console.log("historypath: " + history.location.pathname);
   return (

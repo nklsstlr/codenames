@@ -3,7 +3,7 @@ import React, { Component, createContext, useState, useEffect } from "react";
 import io from "socket.io-client";
 
 export const SocketContext = createContext({});
-const ENDPOINT = "http://localhost:3002";
+const ENDPOINT = "http://localhost:8080";
 
 const SocketProvider = ({ children }) => {
   const socket = io(ENDPOINT);
