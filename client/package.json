@@ -25,13 +25,16 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "socket.io-client": "^2.3.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "cors": "^2.8.5",
+    "socket.io": "^2.2.0"
   },
   "scripts": {
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": " node server.js",
-    "start-dev": "webpack-dev-server --mode development --open --hot",
+    "start-dev": " nodemon server.js",
+    "start-devapi": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "check-types": "tsc"
   },

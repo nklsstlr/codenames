@@ -3,8 +3,8 @@ const router = express.Router();
 
 const { getUsers } = require('./users');
 
-router.get("/", (req, res) => {
-  res.send({ response: "Server is up and running." }).status(200);
+router.get("/api", (req, res) => {
+  res.send({ response: "API is up and running." }).status(200);
 });
 
 var niklas = {id:1,name:"Niklas 3"};
