@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const functions = require("firebase-functions");
 const socketio = require("socket.io");
 const http = require("http");
 const cors = require("cors");
@@ -113,3 +113,4 @@ if (app.get("env") === "development") {
 } else {
   server.listen(port);
 }
+exports.app = functions.https.onRequest(app);
