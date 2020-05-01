@@ -1,4 +1,7 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/b96bad1c-9628-4515-b32d-5bb8acb01098/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/codenamesnklsstlr",
-    "appService.deploySubpath": ""
+    "appService.deploySubpath": "",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
 }
