@@ -1,0 +1,1 @@
+git fetch --unshallow && git push https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@https://codenamesapp-deployslot.scm.azurewebsites.net:443/codenamesapp.git HEAD:refs/heads/master
