@@ -3,7 +3,7 @@ import React from "react";
 const LandingPage = () => {
   return (
     <div>
-      <h1>landingpagee2</h1>
+      <h1>landingpagee</h1>
     </div>
   );
 };
