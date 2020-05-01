@@ -18,7 +18,7 @@ const Lobby = ({ location }: { location: Location }) => {
 
   return (
     <div>
-      <h2>HALLO2{name}</h2>
+      <h2>HALLO_neu{name}</h2>
       Lobby
       <ul>
         <Link to={`/game?name=${name}&room=$1`}>
