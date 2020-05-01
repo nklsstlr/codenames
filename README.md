@@ -1,4 +1,8 @@
+Inline-style:
+![alt text](https://api.travis-ci.com/nklsstlr/codenames.svg?branch=master "Logo Title Text 1")
+
 # Codenames Test Project
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Steps Done
@@ -18,7 +22,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Models
 Backend Logik
 Routing order
-
 
 ## Available Scripts
 
