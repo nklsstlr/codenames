@@ -40,7 +40,7 @@
   "scripts": {
     "bundle": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " node server.js",
+    "start": "cross-env HOSTALL=true node server.js",
     "build": "webpack --mode production",
     "start-dev": "cross-env HOSTALL=true npm-run-all --parallel  web:build-dev api:start-dev",
     "api:start-dev": "nodemon server.js  ",
