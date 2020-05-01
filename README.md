@@ -21,6 +21,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### Heroku Deploy
 
+https://codenamesnklsstlr.herokuapp.com/
+
 #### Azure Deploy from VS Code
 
 https://codenamesapp.azurewebsites.net/ <-- Master
